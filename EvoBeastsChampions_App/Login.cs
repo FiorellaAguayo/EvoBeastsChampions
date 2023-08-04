@@ -1,9 +1,13 @@
+using System.Net;
+
 namespace EvoBeastsChampions_App
 {
     public partial class Login : Form
     {
-        private string logoLogin = "C:\\Users\\fiore\\OneDrive\\Escritorio\\EvoBeastsChampions_App\\EvoBeastsChampions_App\\photos\\logoLogin.jpg";
-        private string iconArrow = "C:\\Users\\fiore\\OneDrive\\Escritorio\\EvoBeastsChampions_App\\EvoBeastsChampions_App\\photos\\right-arrow.jpg";
+        private string imageLoginURL = "https://i.pinimg.com/564x/06/4a/0b/064a0b904c5ce585ad9652ee225a7115.jpg";
+        private string imageIconURL = "https://i.pinimg.com/564x/fc/9a/d4/fc9ad433f59946522ed14a2bca208641.jpg";
+        private Image imageLogin;
+        private Image imageIcon;
 
         private Size originalPbEnterSize;
         private Size originalPbBlockPasswordSize;
@@ -25,18 +29,35 @@ namespace EvoBeastsChampions_App
         private void PbEnter_Click(object sender, EventArgs e)
         {
             formHandler.OpenForm<Main>();
-            Hide();
+            formHandler.HideForm<Login>();
         }
 
         private void CustomizeForm()
         {
-            BackgroundImage = Image.FromFile(logoLogin);
+            imageLogin = LoadImageFromInternet(imageLoginURL);
+            imageIcon = LoadImageFromInternet(imageIconURL);
+
+            BackgroundImage = imageLogin;
+            PbEnter.Image = imageIcon;
             BackgroundImageLayout = ImageLayout.Stretch;
-            PbEnter.Image = Image.FromFile(iconArrow);
             panelLogin.BackColor = Color.FromArgb(150, 255, 255, 255);
 
             originalPbEnterSize = PbEnter.Size;
             originalPbBlockPasswordSize = PbBlockPassword.Size;
+        }
+
+        private Image LoadImageFromInternet(string imageURL)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                byte[] data = webClient.DownloadData(imageURL);
+                using (var stream1 = new System.IO.MemoryStream(data))
+                {
+                    Image image = Image.FromStream(stream1);
+                    BackgroundImage = image;
+                    return image;
+                }
+            }
         }
 
         private void pbBlockPassword_Click(object sender, EventArgs e)

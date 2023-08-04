@@ -40,7 +40,7 @@
             label2 = new Label();
             txbPassword = new TextBox();
             panel2 = new Panel();
-            label5 = new Label();
+            lblTitle2 = new Label();
             panelLogin = new Panel();
             ((System.ComponentModel.ISupportInitialize)PbEnter).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbBlockPassword).BeginInit();
@@ -55,7 +55,7 @@
             lblTitle.BackColor = Color.Transparent;
             lblTitle.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point);
             lblTitle.ForeColor = Color.DarkSlateGray;
-            lblTitle.Location = new Point(319, 290);
+            lblTitle.Location = new Point(319, 298);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(271, 80);
             lblTitle.TabIndex = 6;
@@ -181,17 +181,17 @@
             panel2.Size = new Size(222, 54);
             panel2.TabIndex = 11;
             // 
-            // label5
+            // lblTitle2
             // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Franklin Gothic Medium", 24F, FontStyle.Italic, GraphicsUnit.Point);
-            label5.ForeColor = Color.DarkGoldenrod;
-            label5.Location = new Point(405, 370);
-            label5.Name = "label5";
-            label5.Size = new Size(171, 37);
-            label5.TabIndex = 12;
-            label5.Text = "Champions";
+            lblTitle2.AutoSize = true;
+            lblTitle2.BackColor = Color.Transparent;
+            lblTitle2.Font = new Font("Franklin Gothic Medium", 24F, FontStyle.Italic, GraphicsUnit.Point);
+            lblTitle2.ForeColor = Color.DarkGoldenrod;
+            lblTitle2.Location = new Point(398, 366);
+            lblTitle2.Name = "lblTitle2";
+            lblTitle2.Size = new Size(171, 37);
+            lblTitle2.TabIndex = 12;
+            lblTitle2.Text = "Champions";
             // 
             // panelLogin
             // 
@@ -212,7 +212,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(750, 423);
-            Controls.Add(label5);
+            Controls.Add(lblTitle2);
             Controls.Add(lblTitle);
             Controls.Add(panelLogin);
             FormBorderStyle = FormBorderStyle.None;
@@ -243,8 +243,7 @@
         private TextBox txbPassword;
         private LinkLabel lblLinkCreateAccount;
         private LinkLabel lblLinkCanNotLogin;
-        private RoundButton roundButtonEnter;
-        private Label label5;
+        private Label lblTitle2;
         private PictureBox PbBlockPassword;
         private PictureBox PbEnter;
         private Panel panelLogin;

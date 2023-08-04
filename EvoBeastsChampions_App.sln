@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoBeastsChampions_App", "EvoBeastsChampions_App\EvoBeastsChampions_App.csproj", "{940F2483-F526-452A-AAB2-C267656D7E9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firestore", "Firestore\Firestore.csproj", "{822B89A7-D97F-4D77-B70E-4E492CC799DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{940F2483-F526-452A-AAB2-C267656D7E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{940F2483-F526-452A-AAB2-C267656D7E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{940F2483-F526-452A-AAB2-C267656D7E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{822B89A7-D97F-4D77-B70E-4E492CC799DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{822B89A7-D97F-4D77-B70E-4E492CC799DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{822B89A7-D97F-4D77-B70E-4E492CC799DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{822B89A7-D97F-4D77-B70E-4E492CC799DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
