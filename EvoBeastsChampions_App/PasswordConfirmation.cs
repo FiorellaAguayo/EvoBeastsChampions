@@ -21,7 +21,7 @@ namespace EvoBeastsChampions_App
         {
             if (await _userValidation.ChangePassword(_email, txbPasswordOne.Text, txbPasswordTwo.Text))
             {
-                MessageBox.Show("Se confirmó la contraseña.");
+                MessageBox.Show("Se confirmó la nueva contraseña.");
                 formHandler.HideForm<PasswordConfirmation>();
             }
             else
