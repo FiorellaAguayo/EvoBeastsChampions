@@ -40,7 +40,7 @@
             llLogin = new LinkLabel();
             panel2 = new Panel();
             label1 = new Label();
-            txbUsername = new TextBox();
+            txbAlias = new TextBox();
             PbBlockPassword = new PictureBox();
             lblTitle2 = new Label();
             lblTitle = new Label();
@@ -71,7 +71,7 @@
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label3);
             panel1.Controls.Add(txbEmail);
-            panel1.Location = new Point(39, 79);
+            panel1.Location = new Point(39, 139);
             panel1.Name = "panel1";
             panel1.Size = new Size(222, 54);
             panel1.TabIndex = 18;
@@ -163,8 +163,8 @@
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(label1);
-            panel2.Controls.Add(txbUsername);
-            panel2.Location = new Point(39, 139);
+            panel2.Controls.Add(txbAlias);
+            panel2.Location = new Point(39, 79);
             panel2.Name = "panel2";
             panel2.Size = new Size(222, 54);
             panel2.TabIndex = 11;
@@ -176,16 +176,16 @@
             label1.ForeColor = Color.FromArgb(85, 85, 85);
             label1.Location = new Point(12, 5);
             label1.Name = "label1";
-            label1.Size = new Size(71, 14);
+            label1.Size = new Size(41, 14);
             label1.TabIndex = 0;
-            label1.Text = "USERNAME";
+            label1.Text = "ALIAS";
             // 
-            // txbUsername
+            // txbAlias
             // 
-            txbUsername.Location = new Point(12, 22);
-            txbUsername.Name = "txbUsername";
-            txbUsername.Size = new Size(199, 23);
-            txbUsername.TabIndex = 4;
+            txbAlias.Location = new Point(12, 22);
+            txbAlias.Name = "txbAlias";
+            txbAlias.Size = new Size(199, 23);
+            txbAlias.TabIndex = 4;
             // 
             // PbBlockPassword
             // 
@@ -261,7 +261,7 @@
         private LinkLabel llLogin;
         private Panel panel2;
         private Label label1;
-        private TextBox txbUsername;
+        private TextBox txbAlias;
         private PictureBox PbBlockPassword;
         private Label lblTitle2;
         private Label lblTitle;

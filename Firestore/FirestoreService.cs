@@ -1,29 +1,25 @@
-﻿using Google.Cloud.Firestore;
-
+﻿
 namespace Firestore
 {
-    public class FirestoreService
+    public class FirestoreService<T> : FirestoreDataService, InterfaceCrud<T> where T : class
     {
-        private FirestoreDb _firestoreDb { get; }
-        protected CollectionReference _collection { get; }
-
-        public FirestoreService(string collectionName)
+        public FirestoreService(string collection) : base(collection)
         {
-            _firestoreDb = FirestoreConnection.GetIntance();
-            _collection = _firestoreDb.Collection(collectionName);
+
         }
 
-        // CRUD de documento
+        public async Task Create(T entity, string id) => await CreateEntityAsync(entity, id);
 
+        public async Task Update(T entity, string id) => await UpdateEntityAsync(entity, id);
 
-        //nuevo para git
+        public async Task Delete(string id) => await DeleteEntityAsync(id);
 
+        public async Task<T> GetById(string id) => await GetEntityAsync<T>(id);
 
-        // CRUD de entidad
-        protected async Task<bool> CreateEntityAsync<T>(T entity, string id)
-        {
-            await _collection.AddAsync(entity);
-            return true;
-        }
+        public async Task<List<T>> GetAll() => await GetAllEntitiesAsync<T>();
+
+        public async Task<bool> IFieldExists(string field, string value) => await FieldExistsAsync(field, value);
+
+        public async Task<T> GetUserByField(string field, string value) => await GetEntityByFieldAsync<T>(field, value);
     }
 }

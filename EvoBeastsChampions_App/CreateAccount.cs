@@ -1,4 +1,6 @@
 ﻿using System.Net;
+using Entities;
+using EntitiesServices;
 
 namespace EvoBeastsChampions_App
 {
@@ -14,10 +16,13 @@ namespace EvoBeastsChampions_App
         private Size originalPbEnterSize;
         private Size originalPbBlockPasswordSize;
 
+        private UserValidation _userValidation;
+
         public CreateAccount()
         {
             InitializeComponent();
             formHandler = new FormHandler();
+            _userValidation = new UserValidation();
         }
 
         private void CreateAccount_Load(object sender, EventArgs e)
@@ -26,10 +31,30 @@ namespace EvoBeastsChampions_App
             txbPassword.UseSystemPasswordChar = true;
         }
 
-        private void PbEnterCreateAccount_Click(object sender, EventArgs e)
+        private async void PbEnterCreateAccount_Click(object sender, EventArgs e)
         {
-            formHandler.OpenForm<Main>();
-            formHandler.HideForm<CreateAccount>();
+            User user = new User(txbAlias.Text, txbEmail.Text, txbPassword.Text);
+
+            switch(await _userValidation.ValidateUserToCreate(user))
+            {
+                case UserValidation.ValidationStatus.Success:
+                    MessageBox.Show("Usuario creado con éxito.");
+                    formHandler.OpenForm<Main>();
+                    formHandler.HideForm<CreateAccount>();
+                    break;
+
+                case UserValidation.ValidationStatus.DuplicateAlias:
+                    MessageBox.Show("Ya existe usuario con ese alias.");
+                    break;
+
+                case UserValidation.ValidationStatus.DuplicateEmail:
+                    MessageBox.Show("Ya existe usuario con ese email.");
+                    break;
+
+                case UserValidation.ValidationStatus.InvalidEmail:
+                    MessageBox.Show("El email ingresado no es válido.");
+                    break;
+            }
         }
 
         private void llLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

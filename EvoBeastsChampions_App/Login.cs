@@ -1,4 +1,6 @@
 using System.Net;
+using Entities;
+using EntitiesServices;
 
 namespace EvoBeastsChampions_App
 {
@@ -13,11 +15,13 @@ namespace EvoBeastsChampions_App
         private Size originalPbBlockPasswordSize;
 
         private FormHandler formHandler;
+        private UserValidation _userValidation;
 
         public Login()
         {
             InitializeComponent();
             formHandler = new FormHandler();
+            _userValidation = new UserValidation();
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -26,10 +30,22 @@ namespace EvoBeastsChampions_App
             txbPassword.UseSystemPasswordChar = true;
         }
 
-        private void PbEnter_Click(object sender, EventArgs e)
+        private async void PbEnter_Click(object sender, EventArgs e)
         {
-            formHandler.OpenForm<Main>();
-            formHandler.HideForm<Login>();
+            User user = new User(txbUsername.Text, txbPassword.Text);
+
+            switch(await _userValidation.ValidateUserToLogin(user))
+            {
+                case UserValidation.ValidationStatus.Success:
+                    MessageBox.Show($"Bienvenido de nuevo {user.Alias}!");
+                    formHandler.OpenForm<Main>();
+                    formHandler.HideForm<Login>();
+                    break;
+
+                case UserValidation.ValidationStatus.DoesNotExist:
+                    MessageBox.Show("El alias ingresado no existe");
+                    break;
+            }
         }
 
         private void CustomizeForm()

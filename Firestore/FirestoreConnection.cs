@@ -10,7 +10,7 @@ namespace Firestore
         {
             if (_connection == null)
             {
-                string path = $"{AppDomain.CurrentDomain.BaseDirectory}evobeastchampions-firebase-adminsdk-92905-f5b830717d.json";
+                string path = $"{AppDomain.CurrentDomain.BaseDirectory}evobeastchampions-firebase-adminsdk-92905-1a0b84768d.json";
                 Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
                 _connection = FirestoreDb.Create("evobeastchampions");
             }
