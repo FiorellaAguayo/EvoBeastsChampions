@@ -14,6 +14,9 @@ namespace Entities
         [FirestoreProperty]
         public string Password { get; set; }
 
+        [FirestoreProperty]
+        public string ProfilePicture { get; set; }
+
         public User()
         {
 
@@ -28,6 +31,11 @@ namespace Entities
         public User(string alias, string email, string password) : this(alias, password)
         {
             Email = email;
+        }
+
+        public User(string alias, string email, string password, string profilePicture) : this(alias, email, password)
+        {
+            ProfilePicture = profilePicture;
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-using EntitiesServices;
+﻿using EntitiesServices;
 
 namespace EvoBeastsChampions_App
 {

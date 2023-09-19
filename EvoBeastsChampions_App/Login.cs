@@ -34,11 +34,14 @@ namespace EvoBeastsChampions_App
         {
             User user = new User(txbUsername.Text, txbPassword.Text);
 
-            switch(await _userValidation.ValidateUserToLogin(user))
+            switch (await _userValidation.ValidateUserToLogin(user))
             {
                 case UserValidation.ValidationStatus.Success:
                     MessageBox.Show($"Bienvenido de nuevo {user.Alias}!");
-                    formHandler.OpenForm<Main>();
+
+                    MainMenu mainMenu = new MainMenu(user);
+                    mainMenu.Show();
+
                     formHandler.HideForm<Login>();
                     break;
 
@@ -56,7 +59,7 @@ namespace EvoBeastsChampions_App
             BackgroundImage = imageLogin;
             PbEnter.Image = imageIcon;
             BackgroundImageLayout = ImageLayout.Stretch;
-            panelLogin.BackColor = Color.FromArgb(150, 255, 255, 255);
+            panelLogin.BackColor = Color.FromArgb(50, 255, 255, 255);
 
             originalPbEnterSize = PbEnter.Size;
             originalPbBlockPasswordSize = PbBlockPassword.Size;

@@ -33,13 +33,16 @@ namespace EvoBeastsChampions_App
 
         private async void PbEnterCreateAccount_Click(object sender, EventArgs e)
         {
-            User user = new User(txbAlias.Text, txbEmail.Text, txbPassword.Text);
+            User user = new User(txbAlias.Text, txbEmail.Text, txbPassword.Text, "https://i.pinimg.com/564x/1e/70/72/1e7072d287263b864790261cb336a2c8.jpg");
 
             switch(await _userValidation.ValidateUserToCreate(user))
             {
                 case UserValidation.ValidationStatus.Success:
                     MessageBox.Show("Usuario creado con éxito.");
-                    formHandler.OpenForm<Main>();
+
+                    MainMenu mainMenu = new MainMenu(user);
+                    mainMenu.Show();
+                    
                     formHandler.HideForm<CreateAccount>();
                     break;
 

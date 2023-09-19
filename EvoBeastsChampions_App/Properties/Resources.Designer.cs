@@ -73,6 +73,36 @@ namespace EvoBeastsChampions_App.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap diamond {
+            get {
+                object obj = ResourceManager.GetObject("diamond", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dollar {
+            get {
+                object obj = ResourceManager.GetObject("dollar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap espacio {
+            get {
+                object obj = ResourceManager.GetObject("espacio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap flechaPqueniaBIEN {
             get {
                 object obj = ResourceManager.GetObject("flechaPqueniaBIEN", resourceCulture);
@@ -116,6 +146,16 @@ namespace EvoBeastsChampions_App.Properties {
         internal static System.Drawing.Bitmap logoLogin1 {
             get {
                 object obj = ResourceManager.GetObject("logoLogin1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus {
+            get {
+                object obj = ResourceManager.GetObject("plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
